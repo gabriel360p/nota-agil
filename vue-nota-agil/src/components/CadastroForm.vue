@@ -26,8 +26,8 @@
 
                     <div class="mb-3">
                         <label for="" class="form-label">Confirmar Senha</label>
-                        <input type="password" v-model="user.password_confirmation" class="form-control" id="" aria-describedby="helpId"
-                            placeholder="Repita sua senha">
+                        <input type="password" v-model="user.password_confirmation" class="form-control" id=""
+                            aria-describedby="helpId" placeholder="Repita sua senha">
                     </div>
 
                     <button class="btn btn-success">Salvar</button>
@@ -40,8 +40,11 @@
 
 
 <script>
+
 export default {
     name: 'CadastroForm',
+    components: {
+    },
     methods: {
         cadastro() {
 

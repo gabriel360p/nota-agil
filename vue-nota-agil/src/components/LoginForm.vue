@@ -26,12 +26,15 @@
 </template>
 
 <script>
+
 export default {
     name: 'LoginForm',
+    components: {
 
+    },
     methods: {
         login() {
-            
+
         }
     },
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="about text-center">
+    <h3>Projeto desenvolvido para a matéria de Projeto de Desenvolvimento de Software</h3>
   </div>
 </template>
