@@ -1,16 +1,10 @@
 <template>
-  <div>
-    <AuthBar></AuthBar>
-  </div>
+  <router-view/>
 </template>
 
 <script>
-import AuthBar from './components/AuthBar.vue';
   export default{
     name:'App',
-    components: {
-      AuthBar,
-    },
   }
 </script>
 <style>

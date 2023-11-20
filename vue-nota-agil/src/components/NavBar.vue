@@ -1,9 +1,11 @@
 <template>
     <div>
-        <router-link to="/painel">Início</router-link>
-        <router-link to="/notas">Notas</router-link>
-        <router-link to="/notas/nova">Nova</router-link>
-        <router-view>
+        <nav class="text-center">
+            <router-link to="/painel">Início</router-link> |
+            <router-link to="/notas">Notas</router-link> | 
+            <router-link to="/notas/nova">Nova</router-link> |
+            <router-link to="/sair">Sair</router-link>
+        </nav>
     </div>
 </template>
 
