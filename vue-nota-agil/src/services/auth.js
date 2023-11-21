@@ -1,4 +1,4 @@
-import http from './config.js'
+// import {http} from './config.js'
 
 export default {
     login: () => {

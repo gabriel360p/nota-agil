@@ -1,27 +1,37 @@
 <template>
     <div>
-        {{ notas }}
+        <div v-if="loading">Carregando...</div>
+        <div v-else>
+            {{ notas }}
+        </div>
     </div>
 </template>
 
 <script>
-// import notas from "../services/notas.js"
+import notas from "../services/notas.js"
+
 export default {
     name: 'NotaComp',
     data() {
         return {
             notas: {},
+            loading: true
+        }
+    },
+
+    methods: {
+        async fetchNotas() {
+            await notas.listar_notas().then(res => {
+                this.notas = res.data
+                this.loading = false
+            }).catch(e => {
+                alert(e)
+            })
         }
     },
 
     mounted() {
-        // notas.listar_notas().then(res=>{
-        //     this.notas = res
-        // })
-        // chamando a action
-        this.$store.dispatch('fetchNotas');
-        // chamando o store
-        this.notas = this.$store.state.notas;
+        this.fetchNotas()
     },
 
 }
