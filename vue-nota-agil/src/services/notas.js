@@ -1,23 +1,23 @@
-// import http from './auth.js'
+import {http} from './config.js'
 
-export default{
-    adicionar_notas:()=>{
+export default {
+    cadicionar_notas: () => {
         // return http.post()
     },
 
-    listar_notas:()=>{
+    listar_notas: () => {
+        return http.get('http://localhost:8000/api/places/list')
+    },
+
+    atualizar_nota: () => {
         // return http.post()
     },
 
-    atualizar_nota:()=>{
+    editar_nota: () => {
         // return http.post()
     },
 
-    editar_nota:()=>{
-        // return http.post()
-    },
-
-    deletar_nota:()=>{
+    deletar_nota: () => {
         // return http.post()
     },
 }
