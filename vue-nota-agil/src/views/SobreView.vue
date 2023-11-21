@@ -7,9 +7,9 @@
 <script>
 import AuthBar from '@/components/AuthBar.vue';
 export default {
-    name: 'SobreView',
-    components: {
-      AuthBar,
-    },
+  name: 'SobreView',
+  components: {
+    AuthBar,
+  },
 }
 </script>

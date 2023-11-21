@@ -1,7 +1,7 @@
 <template>
     <div>
         <NavBar></NavBar>
-        <div v-if="loading" class="text-center mt-3">
+        <div v-if="loading" class="text-center mt-5">
 
             <div class="spinner-border " style="width: 3rem; height: 3rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -38,7 +38,7 @@ export default {
                 this.notas = res.data
                 this.loading = false
             }).catch(e => {
-                alert(e)
+                console.error(e)
             })
         }
     },
