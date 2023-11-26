@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NotaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+
+Route::controller(AuthController::class)->group(function(){
+    Route::get('/login','loginPage')->name('login.page');
+    Route::get('/register','registerPage')->name('register.page');
+
+    // Route::post('/login','login')->name('login.page');
+    // Route::post('/register','register')->name('register');
+});
+
+Route::controller(NotaController::class)->group(function(){
+    Route::post('/notas','store')->name('notas.store');
+    Route::get('/notas','create')->name('notas.create');
 });
