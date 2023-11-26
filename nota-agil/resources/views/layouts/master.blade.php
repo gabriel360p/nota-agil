@@ -24,9 +24,11 @@
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon text-light"></span></button>
                     <div class="collapse navbar-collapse text-light" id="navbarNavAltMarkup">
                         <div class="navbar-nav"><a aria-current="page" href="/dashboard"
-                                class="router-link-active router-link-exact-active nav-link text-light active">Início</a><a
-                                href="/notas" class="nav-link text-light">Nova Nota</a><a href="" </div>
-                        </div>  
+                                class="router-link-active router-link-exact-active nav-link text-light active">Início</a>
+                            <a href="/notas" class="nav-link text-light">Nova Nota</a><a href="" </div>
+                                <a href="/sair" class="nav-link text-light">Sair</a><a href="" </div>
+
+                        </div>
             </nav>
         </div>
     </header>
