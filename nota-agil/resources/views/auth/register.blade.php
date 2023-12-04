@@ -1,97 +1,52 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Cadastro</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-</head>
-
-<body>
-    <header>
-        <div>
-            <nav class="navbar navbar-expand-lg bg-dark">
-                <div class="container-fluid"><a aria-current="page" href="/"
-                        class="router-link-active router-link-exact-active navbar-brand text-light">NotaÁgil</a><button
-                        class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigation"><span class="navbar-toggler-icon text-light"></span></button>
-                    <div class="collapse navbar-collapse text-light" id="navbarNavAltMarkup">
-                        <div class="navbar-nav"><a aria-current="page" href="/"
-                                class="router-link-active router-link-exact-active nav-link text-light active">Login</a><a
-                                href="/register" class="nav-link text-light">Cadastrar</a><a href="" </div>
-                        </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <form action="">
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nome</label>
-                            <input type="text" class="form-control" value="{{ @old('name') }}" name="name"
-                                id="" aria-describedby="helpId" placeholder="">
-                            @error('name')
-                                <span class="badge bg-warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Email</label>
-                            <input type="text" class="form-control" value="{{ @old('email') }}" name="email"
-                                id="" aria-describedby="helpId" placeholder="">
-                            @error('email')
-                                <span class="badge bg-warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" value="{{ @old('password') }}"
-                                id="" aria-describedby="helpId" placeholder="">
-                            @error('password')
-                                <span class="badge bg-warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Confirmar Senha</label>
-                            <input type="password" class="form-control" name="password_confirmation')" value="{{ @old('password_confirmation') }}"
-                                id="" aria-describedby="helpId" placeholder="">
-                            @error('password_confirmation')')
-                                <span class="badge bg-warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <button class="btn btn-success">Logar</button>
-                    </form>
+@extends('layouts.auth-master')
+@section('conteudo')
+    <section class="min-vh-100 mb-8">
+        <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
+            style="background-image: url('{{ asset('img/curved-images/curved14.jpg') }}');">
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 text-center mx-auto">
+                        <h1 class="text-white mb-2 mt-5">Bem Vindo!</h1>
+                        <p class="text-lead text-white">Use este formulário para criar uma nova
+                            conta!</p>
+                    </div>
                 </div>
-                <div class="col"></div>
-
             </div>
         </div>
-    </main>
-
-
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+        <div class="container">
+            <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+                <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+                    <div class="card z-index-0">
+                        <div class="card-body">
+                            <form role="form text-left">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nome Completo" name="name"
+                                        aria-label="Name" aria-describedby="email-addon">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email" name="email"
+                                        aria-label="Email" aria-describedby="email-addon">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Senha" name="password"
+                                        aria-label="Password" aria-describedby="password-addon">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Confirmar Senha"
+                                        name="password_confirmation" aria-label="Password"
+                                        aria-describedby="password-addon">
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Salvar</button>
+                                </div>
+                                <p class="text-sm mt-3 mb-0">já tem uma conta? <a href="/"
+                                        class="text-dark font-weight-bolder">Login</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
