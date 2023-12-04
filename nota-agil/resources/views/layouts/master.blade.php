@@ -50,13 +50,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('dashboard') }}">
+                    <a class="nav-link " href="{{ route('notas.create') }}">
                         <i class="fa-solid fa-plus"></i>
                         <span class="nav-link-text ms-1">Nova Nota</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('dashboard') }}">
+                    <a class="nav-link " href="{{ route('profile') }}">
                         <i class="fa-solid fa-user"></i>
                         <span class="nav-link-text ms-1">Perfil</span>
                     </a>

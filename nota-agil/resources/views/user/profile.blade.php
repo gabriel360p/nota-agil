@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0 text-center">
-                    <span class="display-5">Nova Nota</span>
+                    <span class="display-5">Informações do usuário</span>
                 </div>
                 <form action="" class="p-4">
                     <div class="mb-3">
@@ -44,7 +44,7 @@
                             <span class="badge bg-warning">{{ $message }}</span>
                         @enderror
                     </div>
-                    <button class="btn btn-secondary">Salvar</button>
+                    <button class="btn btn-secondary">Editar</button>
                 </form>
             </div>
         </div>
