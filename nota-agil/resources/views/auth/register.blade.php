@@ -19,26 +19,43 @@
                 <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                     <div class="card z-index-0">
                         <div class="card-body">
-                            <form role="form text-left">
+                            <form method="post" action="/register" role="form text-left">
+                                @csrf
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Nome Completo" name="name"
-                                        aria-label="Name" aria-describedby="email-addon">
+                                    <input type="text" value="{{ @old('name') }}" required class="form-control"
+                                        placeholder="Nome Completo" name="name" aria-label="Name"
+                                        aria-describedby="email-addon">
+                                    @error('name')
+                                        <span>{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Email" name="email"
-                                        aria-label="Email" aria-describedby="email-addon">
+                                    <input type="email" required value="{{ @old('email') }}" class="form-control"
+                                        placeholder="Email" name="email" aria-label="Email"
+                                        aria-describedby="email-addon">
+                                    @error('email')
+                                        <span>{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <input type="password" class="form-control" placeholder="Senha" name="password"
-                                        aria-label="Password" aria-describedby="password-addon">
+                                    <input type="password" required class="form-control" value="{{ @old('password') }}"
+                                        placeholder="Senha" name="password" aria-label="Password"
+                                        aria-describedby="password-addon">
+                                    @error('password')
+                                        <span>{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <input type="password" class="form-control" placeholder="Confirmar Senha"
+                                    <input type="password" required class="form-control"
+                                        value="{{ @old('password_confirmation') }}" placeholder="Confirmar Senha"
                                         name="password_confirmation" aria-label="Password"
                                         aria-describedby="password-addon">
+                                    @error('password_confirmation')
+                                        <span>{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Salvar</button>
+                                    <button class="btn bg-gradient-dark w-100 my-4 mb-2">Salvar</button>
                                 </div>
                                 <p class="text-sm mt-3 mb-0">já tem uma conta? <a href="/"
                                         class="text-dark font-weight-bolder">Login</a></p>

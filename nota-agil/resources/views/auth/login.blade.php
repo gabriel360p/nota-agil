@@ -11,19 +11,26 @@
                                 <h3 class="font-weight-bolder text-info text-gradient">Bem vindo de volta!</h3>
                             </div>
                             <div class="card-body">
-                                <form role="form">
+                                <form method="post" action="/login" role="form">
+                                    @csrf
                                     <label>Email</label>
                                     <div class="mb-3">
-                                        <input type="email" class="form-control" name="email" placeholder="Email"
+                                        <input type="email" value="{{@old('email')}}" required class="form-control" name="email" placeholder="Email"
                                             aria-label="Email" aria-describedby="email-addon">
+                                        @error('email')
+                                            <span>{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <label>Senha</label>
                                     <div class="mb-3">
-                                        <input type="email" class="form-control" name="password" placeholder="Senha"
+                                        <input type="password" value="{{@old('password')}}" required class="form-control" name="password" placeholder="Senha"
                                             aria-label="Password" aria-describedby="password-addon">
+                                        @error('password')
+                                            <span>{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Login</button>
+                                        <button class="btn bg-gradient-info w-100 mt-4 mb-0">Login</button>
                                     </div>
                                 </form>
                             </div>

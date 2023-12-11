@@ -63,7 +63,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('dashboard') }}">
+                    <a class="nav-link " href="{{ route('login.page') }}">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <span class="nav-link-text ms-1">Sair</span>
                     </a>

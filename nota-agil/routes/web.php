@@ -19,25 +19,31 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/profile', function () {
-    return view('user.profile');
-})->name('profile');
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login', 'loginPage')->name('login.page');
+    Route::get('/register', 'registerPage')->name('register.page');
 
+    Route::post('/login', 'login')->name('login.function');
+    Route::post('/register', 'register')->name('register.function');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-
-Route::controller(AuthController::class)->group(function(){
-    Route::get('/login','loginPage')->name('login.page');
-    Route::get('/register','registerPage')->name('register.page');
-
-    // Route::post('/login','login')->name('login.page');
-    // Route::post('/register','register')->name('register');
+    
+    Route::get('/logout', 'logout')->name('logout.function');
 });
 
-Route::controller(NotaController::class)->group(function(){
-    Route::post('/notas','store')->name('notas.store');
-    Route::get('/notas','create')->name('notas.create');
+
+
+Route::middleware('auth')->group(function () {
+    Route::controller(NotaController::class)->group(function () {
+        Route::post('/notas', 'store')->name('notas.store');
+        Route::get('/notas', 'create')->name('notas.create');
+    });
+
+    Route::get('/profile', function () {
+        return view('user.profile');
+    })->name('profile');
+
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });
