@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NotaController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'login')->name('login.function');
     Route::post('/register', 'register')->name('register.function');
 
-    
+
     Route::get('/logout', 'logout')->name('logout.function');
 });
 
@@ -38,10 +39,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/notas', 'create')->name('notas.create');
     });
 
-    Route::get('/profile', function () {
-        return view('user.profile');
-    })->name('profile');
-
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('/profile', 'show')->name('profile');
+        Route::post('/profile', 'update')->name('profile.update');
+        Route::post('/profile/delete', 'destroy')->name('profile.delete');
+    });
 
     Route::get('/dashboard', function () {
         return view('dashboard');
