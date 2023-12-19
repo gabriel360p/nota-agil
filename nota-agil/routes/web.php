@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\NotaController;
+use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,13 +38,40 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware('auth')->group(function () {
     Route::controller(NotaController::class)->group(function () {
         Route::post('/notas', 'store')->name('notas.store');
-        Route::get('/notas', 'create')->name('notas.create');
+        Route::get('/notas/create', 'create')->name('notas.create');
+        Route::get('/notas', 'index')->name('notas.index');
     });
 
     Route::controller(ProfileController::class)->group(function () {
         Route::get('/profile', 'show')->name('profile');
         Route::post('/profile', 'update')->name('profile.update');
         Route::post('/profile/delete', 'destroy')->name('profile.delete');
+    });
+
+
+    Route::controller(ProdutoController::class)->group(function () {
+        Route::get('/produtos', 'index')->name('produtos.index');
+
+        Route::get('/produtos/create', 'create')->name('produtos.create');
+        Route::post('/produtos', 'store')->name('produtos.store');
+
+        Route::get('/produtos/edit/{produto}', 'edit')->name('produtos.edit');
+        Route::post('/produtos/update/{produto}', 'update')->name('produtos.update');
+
+        Route::get('/produtos/delete/{produto}', 'destroy')->name('produtos.delete');
+    });
+
+
+    Route::controller(CategoriaController::class)->group(function () {
+        Route::get('/categorias', 'index')->name('categorias.index');
+
+        Route::get('/categorias/create', 'create')->name('categorias.create');
+        Route::post('/categorias', 'store')->name('categorias.store');
+
+        Route::get('/categorias/edit/{categoria}', 'edit')->name('categorias.edit');
+        Route::post('/categorias/update/{categoria}', 'update')->name('categorias.update');
+
+        Route::get('/categorias/delete/{categoria}', 'destroy')->name('categorias.delete');
     });
 
     Route::get('/dashboard', function () {

@@ -48,6 +48,14 @@
                         <span class="nav-link-text ms-1">Home</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('profile') }}">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="nav-link-text ms-1">Perfil</span>
+                    </a>
+                </li>
+
+                <hr class="border-top">
 
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('notas.create') }}">
@@ -55,12 +63,50 @@
                         <span class="nav-link-text ms-1">Nova Nota</span>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('profile') }}">
-                        <i class="fa-solid fa-user"></i>
-                        <span class="nav-link-text ms-1">Perfil</span>
+                    <a class="nav-link " href="{{ route('notas.index') }}">
+                        <i class="fa-solid fa-note-sticky"></i>
+                        <span class="nav-link-text ms-1">Notas</span>
                     </a>
                 </li>
+
+
+                <hr class="border-bottom">
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('produtos.create') }}">
+                        <i class="fa-solid fa-plus"></i>
+                        <span class="nav-link-text ms-1">Novo Produto</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('produtos.index') }}">
+                        <i class="fa-solid fa-box-open"></i>
+                        <span class="nav-link-text ms-1">Produtos</span>
+                    </a>
+                </li>
+
+
+                <hr class="border-bottom">
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('categorias.create') }}">
+                        <i class="fa-solid fa-plus"></i>
+                        <span class="nav-link-text ms-1">Nova Categoria</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('categorias.index') }}">
+                        <i class="fa-solid fa-list"></i>
+                        <span class="nav-link-text ms-1">Categorias</span>
+                    </a>
+                </li>
+
+
+                <hr class="border-bottom">
 
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('login.page') }}">
@@ -102,7 +148,7 @@
         <div class="container-fluid py-4">
             <div class="row">
                 @yield('conteudo')
-                
+
                 {{-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
 
                     <div class="card">
