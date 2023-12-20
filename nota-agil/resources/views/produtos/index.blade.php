@@ -4,9 +4,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0">
+                <div class="card-header pb-0 d-flex flex-row align-items-center justify-content-between">
                     <h6>Produtos Salvos</h6>
+                    <a class="btn btn-secondary" href="/produtos/create">
+                        <i class="fa-solid fa-plus"></i>
+                        <span class="nav-link-text ms-1">Novo Produto</span>
+                    </a>
                 </div>
+
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center justify-content-center mb-0">
@@ -16,7 +21,8 @@
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Preço
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Categoria
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Categoria
                                     </th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">
@@ -75,6 +81,9 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="card-footer text-center">
+                    {{ $produtos->links() }}
                 </div>
             </div>
         </div>

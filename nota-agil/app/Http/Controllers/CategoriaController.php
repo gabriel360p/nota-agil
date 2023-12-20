@@ -14,7 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('categorias.index',['categorias'=>\App\Models\Categoria::orderBy('asc')->get()]);
+        return view('categorias.index',['categorias'=>\App\Models\Categoria::orderBy('asc')->simplePaginate(5)]);
     }
 
     /**
@@ -31,7 +31,8 @@ class CategoriaController extends Controller
     public function store(RequestCategoria $request)
     {
         Categoria::create($request->all());        
-        return redirect(route('categorias.index'));
+        return back();
+        // return redirect(route('categorias.index'));
     }
 
     /**
@@ -48,7 +49,7 @@ class CategoriaController extends Controller
     public function update(RequestCategoria $request, Categoria $categoria)
     {
         $categoria->update($request->all());        
-        return redirect(route('categorias.index'));
+        return back();
     }
 
     /**

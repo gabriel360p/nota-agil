@@ -19,5 +19,7 @@ class SeedCategoria extends Seeder
         Categoria::create(['nome'=>'Embutido']);
         Categoria::create(['nome'=>'Higiêne']);
         Categoria::create(['nome'=>'Limpeza']);
+        Categoria::create(['nome'=>'Acessório']);
+        Categoria::create(['nome'=>'Eletrônico']);
     }
 }

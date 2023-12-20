@@ -32,7 +32,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0 text-center" href="{{ route('dashboard') }}" target="_blank">
+            <a class="navbar-brand m-0 text-center" href="{{ route('dashboard') }}" target="">
                 {{-- <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo"> --}}
                 <span style="font-size: 30px" class="display-5 ms-1">NotaÁgil</span>
             </a>
@@ -55,14 +55,15 @@
                     </a>
                 </li>
 
-                <hr class="border-top">
-
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('notas.create') }}">
                         <i class="fa-solid fa-plus"></i>
                         <span class="nav-link-text ms-1">Nova Nota</span>
                     </a>
                 </li>
+
+                <hr class="border-top">
+
 
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('notas.index') }}">
@@ -72,14 +73,15 @@
                 </li>
 
 
-                <hr class="border-bottom">
+                {{-- <hr class="border-bottom"> --}}
 
-                <li class="nav-item">
+
+                {{-- <li class="nav-item">
                     <a class="nav-link " href="{{ route('produtos.create') }}">
                         <i class="fa-solid fa-plus"></i>
                         <span class="nav-link-text ms-1">Novo Produto</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('produtos.index') }}">
@@ -89,14 +91,12 @@
                 </li>
 
 
-                <hr class="border-bottom">
-
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link " href="{{ route('categorias.create') }}">
                         <i class="fa-solid fa-plus"></i>
                         <span class="nav-link-text ms-1">Nova Categoria</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('categorias.index') }}">
@@ -106,7 +106,6 @@
                 </li>
 
 
-                <hr class="border-bottom">
 
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('login.page') }}">

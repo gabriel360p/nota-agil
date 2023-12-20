@@ -14,7 +14,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('produtos.index',['produtos'=>\App\Models\Produto::orderBy('asc')->get()]);
+        return view('produtos.index',['produtos'=>\App\Models\Produto::orderBy('asc')->simplePaginate(8)]);
     }
 
     /**
@@ -31,7 +31,7 @@ class ProdutoController extends Controller
     public function store(RequestProduto $request)
     {
         Produto::create($request->all());        
-        return redirect(route('produtos.index'));
+        return back();
     }
 
     /**
@@ -48,7 +48,7 @@ class ProdutoController extends Controller
     public function update(RequestProduto $request, Produto $produto)
     {
         $produto->update($request->all());        
-        return redirect(route('produtos.index'));
+        return back();
     }
 
     /**

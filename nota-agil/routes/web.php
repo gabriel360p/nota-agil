@@ -40,6 +40,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/notas', 'store')->name('notas.store');
         Route::get('/notas/create', 'create')->name('notas.create');
         Route::get('/notas', 'index')->name('notas.index');
+
+        Route::get('/notas/show/{nota}', 'show')->name('notas.show');
+
+        Route::get('/notas/download/{nota}', 'download')->name('notas.download');
+        
+        Route::get('/notas/delete/{nota}', 'destroy')->name('notas.delete');
     });
 
     Route::controller(ProfileController::class)->group(function () {
@@ -75,6 +81,6 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard',['notas'=>\App\Models\Nota::cursorPaginate(8)]);
     })->name('dashboard');
 });

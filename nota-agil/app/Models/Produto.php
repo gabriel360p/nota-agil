@@ -9,14 +9,19 @@ class Produto extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'nome',
         'preco',
-        'categoria_id', 
+        'categoria_id',
         'user_id',
     ];
 
-    public function categoria() {
+    public function categoria()
+    {
         return $this->belongsTo(Categoria::class);
+    }
+
+    public function notas() {
+        return $this->belongsToMany(Nota::class);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Nota;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class NotaController extends Controller
 {
@@ -12,7 +14,15 @@ class NotaController extends Controller
      */
     public function index()
     {
-        return redirect(url('/dashboard'));
+        return view('notas.index', ['notas' => \App\Models\Nota::simplePaginate(8)]);
+    }
+
+    public function download(Nota $nota)
+    {
+        $data['nota'] = $nota;//pegando dados
+        $pdf = Pdf::loadView('nota',$data);//passando o documento html junto com dados
+        $name='nota_'.$nota->id.'.pdf';
+        return $pdf->download($name);//baixando o pdf na hora 
     }
 
     /**
@@ -24,19 +34,11 @@ class NotaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(Nota $nota)
     {
-        //
+        return view('notas.show', ['nota' => $nota]);
     }
 
     /**
@@ -48,18 +50,11 @@ class NotaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Nota $nota)
-    {
-        return redirect(url('/dashboard'));
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Nota $nota)
     {
-        //
+        $nota->delete();
+        return redirect('/notas');
     }
 }

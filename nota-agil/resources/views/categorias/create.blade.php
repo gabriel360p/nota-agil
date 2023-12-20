@@ -14,9 +14,9 @@
                         <label for="" class="form-label">Nome da Categoria</label>
                         <input type="text" class="form-control" value="{{ @old('nome') }}" required name="nome"
                             aria-describedby="helpId" placeholder="Nome da Categoria">
-                            @error('nome')
-                                <span class="badge bg-warning">{{$message}}</span>
-                            @enderror
+                        @error('nome')
+                            <span class="badge bg-warning">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>

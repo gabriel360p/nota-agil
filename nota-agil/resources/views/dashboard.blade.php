@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('conteudo')
-
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
@@ -13,10 +12,11 @@
                         <table class="table align-items-center justify-content-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID da
+                                        nota
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Data de Criação</th>
+                                        Criação</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Quem Gerou</th>
                                     <th
@@ -25,48 +25,56 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-2">
-                                            <div class="my-auto">
-                                                <h6 class="mb-0 text-sm">Compra #321</h6>
+                                @foreach ($notas as $nota)
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex px-2">
+                                                <div class="my-auto">
+                                                    <h6 class="mb-0 text-sm">{{ $nota->id }}</h6>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2">
-                                            <div class="my-auto">
-                                                <h6 class="mb-0 text-sm">02/12/2023</h6>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex px-2">
+                                                <div class="my-auto">
+                                                    <h6 class="mb-0 text-sm">{{ $nota->created_at }}</h6>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2">
-                                            <div class="my-auto">
-                                                <h6 class="mb-0 text-sm">Julia Medeiros</h6>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex px-2">
+                                                <div class="my-auto">
+                                                    <h6 class="mb-0 text-sm">{{ $nota->user->name }}</h6>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="btn-group dropstart">
-                                            <button type="button" class="btn btn-secondary dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Opções
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <!-- Dropdown menu links -->
-                                                <li><a class="dropdown-item" href="#">Editar</a></li>
-                                                <li><a class="dropdown-item" href="#">Baixar</a></li>
-                                                <li><a class="dropdown-item" href="#">Apagar</a></li>
-                                            </ul>
-                                        </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group dropstart">
+                                                <button type="button" class="btn btn-secondary dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Opções
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <!-- Dropdown menu links -->
+                                                    <li><a class="dropdown-item"
+                                                            href="{{ route('notas.show', $nota->id) }}">Abrir</a></li>
+                                                    <li><a class="dropdown-item"
+                                                            href="{{ route('notas.delete', $nota->id) }}">Apagar</a></li>
+                                                    <li><a class="dropdown-item" href="#">Baixar</a></li>
+                                                </ul>
+                                            </div>
 
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="card-footer text-center">
+                    {{ $notas->links() }}
+
                 </div>
             </div>
         </div>

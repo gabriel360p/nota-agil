@@ -13,7 +13,5 @@ class Categoria extends Model
         'nome',
     ];
 
-    public function produto() {
-        return $this->hasOne(Produto::class);
-    }
+
 }
