@@ -81,6 +81,6 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/dashboard', function () {
-        return view('dashboard',['notas'=>\App\Models\Nota::cursorPaginate(8)]);
+        return view('dashboard',['notas'=>\App\Models\Nota::latest()->cursorPaginate(8)]);
     })->name('dashboard');
 });

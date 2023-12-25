@@ -14,7 +14,7 @@ class NotaController extends Controller
      */
     public function index()
     {
-        return view('notas.index', ['notas' => \App\Models\Nota::simplePaginate(8)]);
+        return view('notas.index', ['notas' => \App\Models\Nota::latest()->simplePaginate(8)]);
     }
 
     public function download(Nota $nota)

@@ -14,7 +14,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('produtos.index',['produtos'=>\App\Models\Produto::orderBy('asc')->simplePaginate(8)]);
+        return view('produtos.index',['produtos'=>\App\Models\Produto::orderBy('nome','asc')->simplePaginate(8)]);
     }
 
     /**
@@ -22,7 +22,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('produtos.create',['categorias'=>Categoria::orderBy('asc')->get()]);
+        return view('produtos.create',['categorias'=>Categoria::orderBy('nome','asc')->get()]);
     }
 
     /**
@@ -39,7 +39,7 @@ class ProdutoController extends Controller
      */
     public function edit(Produto $produto)
     {
-        return view('produtos.edit',['produto'=>$produto,'categorias'=>Categoria::orderBy('asc')->get()]);
+        return view('produtos.edit',['produto'=>$produto,'categorias'=>Categoria::orderBy('nome','asc')->get()]);
     }
 
     /**

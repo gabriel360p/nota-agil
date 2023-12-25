@@ -19,7 +19,7 @@ class NovaNota extends Component
 
     public function mount()
     {
-        $this->categorias = Categoria::orderBy('asc')->get();
+        $this->categorias = Categoria::orderBy('nome','asc')->get();
     }
 
     public function add(Produto $produto)

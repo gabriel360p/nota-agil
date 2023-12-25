@@ -14,7 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('categorias.index',['categorias'=>\App\Models\Categoria::orderBy('asc')->simplePaginate(5)]);
+        return view('categorias.index',['categorias'=>\App\Models\Categoria::orderBy('nome','asc')->simplePaginate(5)]);
     }
 
     /**
